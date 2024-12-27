@@ -41,7 +41,6 @@ Thumbs.db
 *.sln
 
 # Public/static assets built dynamically
-public/assets/
 dist/
 build/
 
