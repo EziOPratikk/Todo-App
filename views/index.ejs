@@ -22,10 +22,13 @@
 
         <button id="edit<%=item.id%>" class="edit" onclick="handleUpdate('<%=item.id%>')"><img class="icon"
             src="/assets/icons/edit.png" alt="clipboard image"></button>
-
-        <p id="title<%=item.id%>">
-          <%= item.title %>
-        </p>
+ 
+        <div class="title-container" id="title<%=item.id%>">
+          <p>
+            <%= item.title %>
+          </p>
+          <span class="date-text" id="dateText<%=item.id%>">Created: <%=item.created_at.toLocaleDateString()%></span>
+        </div>
         
         <form action="/delete" method="post">
           <button id="delete<%=item.id%>" name="deleteItemId" value=<%=item.id%> class="delete" type="submit"><img class="icon"
@@ -51,7 +54,7 @@
 
   <script>
     function handleUpdate(id) {
-      document.getElementById("title" + id).setAttribute("hidden", true)
+      document.getElementById("title" + id).style.display = "none";
       document.getElementById("edit" + id).setAttribute("hidden", true)
       document.getElementById("delete" + id).setAttribute("hidden", true)
       document.getElementById("update" + id).style.cssText = "display: flex; justify-content: space-between; align-items: center;";
@@ -60,6 +63,7 @@
 
     function cancelUpdate(id) {
     document.getElementById("title" + id).removeAttribute("hidden");
+    document.getElementById("title" + id).style.display = "flex";
     document.getElementById("edit" + id).removeAttribute("hidden");
     document.getElementById("delete" + id).removeAttribute("hidden");
     document.getElementById("update" + id).style.cssText = "display: none;";

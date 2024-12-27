@@ -4,3 +4,5 @@ CREATE TABLE items (
 );
 
 INSERT INTO items (title) VALUES ('Get Groceries');
+
+ALTER TABLE items add column created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
