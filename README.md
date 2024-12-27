@@ -24,9 +24,9 @@ A Todo List Recording APP built using Node, Express, EJS & PostgreSQL.
     ```
 3. **Setup for Postgres Database:**
 
-    i. Create a database using pgAdmin
-    ii. Then create a table using pgAdmin. Use queries.sql file for references.
-    iii. Head over to db/conn.js and type your database name and postgres password.
+    - Create a database using pgAdmin
+    - Then create a table using pgAdmin. Use queries.sql file for references.
+    - Head over to db/conn.js and type your database name and postgres password.
 
 4. **Run the server:**
 
@@ -36,5 +36,5 @@ A Todo List Recording APP built using Node, Express, EJS & PostgreSQL.
 
 5. **Screenshots:**
 
-  <img src='assets/screenshots/screenshot-1.png' style="display: block;"/>
-  <img src='assets/screenshots/screenshot-2.png' style="display: block;"/>
+  <img src='public/assets/screenshots/screenshot-1.png' style="display: block;"/>
+  <img src='public/assets/screenshots/screenshot-2.png' style="display: block;"/>
