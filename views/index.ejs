@@ -1,0 +1,69 @@
+<%- include('partials/header.ejs'); -%>
+
+  <div class="container" id="heading">
+    <h1>
+      <%= listTitle %>
+    </h1>
+  </div>
+  <div class="container">
+    <% for(let item of listItems){%>
+      <div class="item">
+        <form class="update" id="update<%=item.id%>" action="/edit" method="post">
+          <button type="button" class="update" onclick="cancelUpdate('<%=item.id%>')"><img class="icon" src="/assets/icons/back.png" alt="back image"></button>
+          <div>
+            <input type="hidden" name="updatedItemId" value="<%= item.id %>">
+            <input class="itemUpdate" type="text" id="input<%=item.id%>" name="updatedItemTitle" placeholder="What's the better version?" autocomplete="off" required>
+          </div>
+          <div>
+            <button id="done<%=item.id%>" class="update" type="submit"><img class="icon"
+              src="/assets/icons/arrow.png" alt="tick image"></button>
+          </div>
+        </form>
+
+        <button id="edit<%=item.id%>" class="edit" onclick="handleUpdate('<%=item.id%>')"><img class="icon"
+            src="/assets/icons/edit.png" alt="clipboard image"></button>
+
+        <p id="title<%=item.id%>">
+          <%= item.title %>
+        </p>
+        
+        <form action="/delete" method="post">
+          <button id="delete<%=item.id%>" name="deleteItemId" value=<%=item.id%> class="delete" type="submit"><img class="icon"
+            src="/assets/icons/delete.png" alt="bin image"></button>
+        </form>
+      </div>
+      <% } %>
+
+        <form class="item" action="/add" method="post">
+          <input 
+            class="itemInput" 
+            type="text" 
+            name="newItem" 
+            placeholder="<%= listItems.length === 0 ? 'Start your list!' : 'What’s next?' %>" 
+            autocomplete="off" 
+            autofocus="true" 
+            required 
+            maxlength="50"
+          />
+          <button class="add" type="submit" name="list" value=<%=listTitle %> >+</button>
+        </form>
+  </div>
+
+  <script>
+    function handleUpdate(id) {
+      document.getElementById("title" + id).setAttribute("hidden", true)
+      document.getElementById("edit" + id).setAttribute("hidden", true)
+      document.getElementById("delete" + id).setAttribute("hidden", true)
+      document.getElementById("update" + id).style.cssText = "display: flex; justify-content: space-between; align-items: center;";
+      document.getElementById("input" + id).focus();
+    }
+
+    function cancelUpdate(id) {
+    document.getElementById("title" + id).removeAttribute("hidden");
+    document.getElementById("edit" + id).removeAttribute("hidden");
+    document.getElementById("delete" + id).removeAttribute("hidden");
+    document.getElementById("update" + id).style.cssText = "display: none;";
+  }
+  </script>
+
+  <%- include('partials/footer.ejs'); -%>

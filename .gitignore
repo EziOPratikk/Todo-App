@@ -1,0 +1,63 @@
+# Node.js-related files and directories
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Logs
+logs/
+*.log
+*.log.*
+
+# Runtime files
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Database and local data
+*.sqlite
+*.sqlite3
+*.db
+*.db-shm
+*.db-wal
+*.csv
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Editor and IDE configuration
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Public/static assets built dynamically
+public/assets/
+dist/
+build/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Coverage files
+coverage/
+.nyc_output/
+
+# Generated views/templates
+*.ejs~
+*.swp
+
+# Other
+*.bak
+*.orig
